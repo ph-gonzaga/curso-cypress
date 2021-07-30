@@ -24,6 +24,9 @@
 // -- This is will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 
+const addExtensionCommands = require('cypress-browser-extension-plugin/commands');
+addExtensionCommands(Cypress);
+
 Cypress.Commands.add("fillMandatoryFields", data => {
   cy.get("#first-name").type(data.firstName);
   cy.get("#last-name").type(data.lastName);
